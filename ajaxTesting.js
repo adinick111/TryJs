@@ -5,9 +5,14 @@ connect.open('GET', link);
 
 //connect.setRequestHeader("Access-Control-Allow-Origin","*");
 //connect.setRequestHeader("Accept","text/html")
-connect.onload = function () {
-    resp = JSON.parse(connect.responseText)
-    console.log(resp.results[0].address_components[0].long_name);
-};
+connect.onload = loading;
+//              function () {
+//     resp = JSON.parse(connect.responseText)
+//     console.log(resp.results[0].address_components[0].long_name);
+// };
 
+function loading() {
+    resp = JSON.parse(connect.responseText);
+    console.log(resp.results[0].address_components[0].long_name);
+}
 connect.send();
